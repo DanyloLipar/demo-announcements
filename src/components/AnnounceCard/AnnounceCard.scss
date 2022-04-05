@@ -1,0 +1,71 @@
+@import '../../vars.scss';
+@import '../../reset.scss';
+
+.announcement {
+    align-items: center;
+    border: 3px solid $btn-border;
+    width: 500px;
+
+    &__head {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        padding-left: 15px;
+
+        &-txt {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 130px;
+
+            &>div {
+                padding-bottom: 15px;
+
+                &>h3 {
+                    padding-top: 10px;
+                }
+            }
+        }
+
+        &-arrow {
+            background: $bckg;
+            border: none;
+        }
+
+        &>img {
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    &__info {
+        padding-left: 15px;
+
+        &>p {
+            width: 50%;
+        }
+    }
+}
+
+button {
+    cursor: pointer;
+}
+
+.btn {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7px;
+
+    &__edit {
+        border: 2px solid $btn-border;
+        background: $white;
+    }
+
+    &__cancel {
+        border: 2px solid $red;
+        background: $cancel-btn-bckg;
+    }
+}
