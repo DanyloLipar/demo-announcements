@@ -124,7 +124,7 @@ export const NewAnnouncement: React.FC<Props> = ({
                             <button
                                 type="submit"
                             >
-                                Add Product
+                                Add
                             </button>
                             <button
                                 type='button'
