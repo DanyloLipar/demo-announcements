@@ -28,7 +28,6 @@ export const AnnounceList: React.FC<Props> = ({
                     >
                         <AnnounceCard
                             announcementsTwo={announcementsTwo}
-                            wholeAnnouncements={announcements}
                             announcement={announcement}
                             deleting={deleting}
                             setAnnouncement={setAnnouncement}

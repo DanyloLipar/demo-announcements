@@ -69,3 +69,55 @@ button {
         background: $cancel-btn-bckg;
     }
 }
+
+.modal-edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
+
+}
+
+.general {
+    &__list {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        gap: 15px;
+        padding: 0 0 10px;
+        margin-top: 4px;
+        margin-right: 10px;
+
+        &-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            &>a {
+                color: $events;
+                background: $white;
+                border: 2px solid $btn-border;
+                text-decoration: none;
+                padding: 2px;
+                text-align: center;
+
+                &:hover {
+                    background: $event-hovered;
+                }
+            }
+        }
+    }
+
+    &__head {
+        font-weight: bold;
+        margin-top: 15px;
+    }
+}

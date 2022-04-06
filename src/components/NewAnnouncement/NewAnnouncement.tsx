@@ -13,6 +13,7 @@ export const NewAnnouncement: React.FC<Props> = ({
     announcements,
 }) => {
     const [modal, setModal] = useState(false);
+    const id = announcements.length + 1;
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');;
     const [date, setDate] = useState('');
@@ -25,6 +26,12 @@ export const NewAnnouncement: React.FC<Props> = ({
         document.body.style.overflow = "hidden";
     }
 
+    const clear = () => {
+        setTitle('');
+        setDescription('');
+        setDate('');
+    }
+
     const closerModal = (event: React.FormEvent) => {
         event.preventDefault();
         setModal(!modal);
@@ -32,6 +39,7 @@ export const NewAnnouncement: React.FC<Props> = ({
         setTitleCheck(false);
         setDescriptionCheck(false);
         document.body.style.overflow = "visible";
+        clear();
     }
 
     const inputError = () => {
@@ -50,6 +58,7 @@ export const NewAnnouncement: React.FC<Props> = ({
     const onAdd = (event: React.FormEvent) => {
         event.preventDefault();
         const newAnnouncement: Announcement = {
+            id,
             title,
             description,
             date,
@@ -60,6 +69,7 @@ export const NewAnnouncement: React.FC<Props> = ({
         if (title && description && date) {
             addAnnounce(newAnnouncement);
             closerModal(event);
+            clear();
         }
     };
 
@@ -77,6 +87,7 @@ export const NewAnnouncement: React.FC<Props> = ({
                         <label className='form__name'>
                             Title:
                             <input
+                                value={title}
                                 className={classNames({
                                     'red': titleCheck,
                                 })}
@@ -88,6 +99,8 @@ export const NewAnnouncement: React.FC<Props> = ({
                         <label >
                             Date:
                             <input
+                                type="date"
+                                value={date}
                                 onChange={(event) => {
                                     setDate(event.target.value)
                                 }}
@@ -98,6 +111,7 @@ export const NewAnnouncement: React.FC<Props> = ({
                         </label>
 
                         <textarea
+                            value={description}
                             placeholder='Description'
                             className={classNames({
                                 'red': descriptionCheck,
@@ -125,7 +139,9 @@ export const NewAnnouncement: React.FC<Props> = ({
             <button
                 type="button"
                 className="adder"
-                onClick={attachAnnounce}
+                onClick={() => {
+                    attachAnnounce();
+                }}
             >Add</button>
         </>
     )
